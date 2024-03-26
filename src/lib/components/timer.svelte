@@ -2,9 +2,12 @@
 
     import { Button } from "$lib/components/ui/button";
 
+    const workingTime = 25;
+    const breakTime = 5;
+
     let state = 'Working';
 
-    let time = 25 * 60;
+    let time = workingTime * 60;
 
     let countdown;
 
@@ -41,11 +44,12 @@
         switch (state) {
             case 'Working':
                 alert("Time for a break!");
-                time = 60 * 5 + 1;
+                time = breakTime * 60 + 1;
                 state = 'ShortBreak';
+                break;
             case 'ShortBreak':
                 alert("Back to work!");
-                time = 60 * 25 + 1;
+                time = workingTime * 60 + 1;
                 state = 'Working';
         }
       }
