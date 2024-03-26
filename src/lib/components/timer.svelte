@@ -2,9 +2,13 @@
 
     import { Button } from "$lib/components/ui/button";
 
-    let time = 5;
+    let state = 'Working';
+
+    let time = 25 * 60;
 
     let countdown;
+
+    let isStarted = false;
 
     function convertTime(x) {
       let minutes = Math.floor(x/60);
@@ -14,23 +18,40 @@
       } else {
         return "" + minutes + " : " + seconds
       }
-      
     }
 
     function startCountdown() {
-      countdown = setInterval(update, 1000);
+        if (!isStarted) {
+            isStarted = true;
+            countdown = setInterval(updateTimer, 1000);
+        }
     }
 
-    function update() {
+    function stopCountdown() {
+        if (isStarted) {
+            isStarted = false;
+            clearInterval(countdown);
+        }
+    }
+
+    function updateTimer() {
       if (time > 0) {
         time -= 1;
       } else {
-        clearInterval(countdown);
-        alert("time's up!")
+        switch (state) {
+            case 'Working':
+                alert("Time for a break!");
+                time = 60 * 5 + 1;
+                state = 'ShortBreak';
+            case 'ShortBreak':
+                alert("Back to work!");
+                time = 60 * 25 + 1;
+                state = 'Working';
+        }
       }
     }
 
 </script>
 <Button on:click={()=>startCountdown()}>Start</Button>
 {convertTime(time)}
-<Button on:click={()=>clearInterval(countdown)}>Stop</Button>
+<Button on:click={()=>stopCountdown()}>Stop</Button>
