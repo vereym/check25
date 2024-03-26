@@ -1,1 +1,8 @@
-<script>import "../app.pcss";</script><slot></slot>
+<script>
+  import "../app.pcss";
+</script>
+
+
+<main class="container max-md">
+  <slot />
+</main>

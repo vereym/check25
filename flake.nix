@@ -8,6 +8,7 @@
           buildInputs = with pkgs; [
             nodePackages.svelte-language-server
             nodePackages.typescript-language-server
+            tailwindcss-language-server
 
           ];
         };
