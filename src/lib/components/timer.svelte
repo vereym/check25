@@ -56,6 +56,8 @@
     }
 
 </script>
-<Button on:click={()=>startCountdown()}>Start</Button>
-{convertTime(time)}
-<Button on:click={()=>stopCountdown()}>Stop</Button>
+  <div class="flex p-2 space-x-10">
+  <Button on:click={()=>startCountdown()}>Start</Button>
+  <p>{convertTime(time)}</p>
+  <Button variant="destructive" on:click={()=>stopCountdown()}>Stop</Button>
+</div>

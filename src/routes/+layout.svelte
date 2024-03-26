@@ -3,6 +3,6 @@
 </script>
 
 
-<main class="container max-md">
+<main class="grid place-items-center pt-10">
   <slot />
 </main>

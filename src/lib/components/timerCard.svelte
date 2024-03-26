@@ -8,5 +8,7 @@
   <Card.Header>
     <Card.Title>Timer</Card.Title>
   </Card.Header>
-  <Timer />
+  <Card.Content class="grid place-content-center">
+    <Timer />
+  </Card.Content>
 </Card.Root>
