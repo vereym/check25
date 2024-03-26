@@ -1,22 +1,22 @@
 <script>
 	import { addTask, getTaskStore, addSession, getSessionStore } from '$lib/db.js';
-    let tasks = getTaskStore();
-    let taskName = "";
+  let tasks = getTaskStore();
+  let taskName = "";
 
-    async function createTask() {
-        if (taskName) {
-            addTask(taskName);
-            taskName = "";
-            tasks = getTaskStore();
-        }
-    }
+  async function createTask() {
+      if (taskName) {
+          addTask(taskName);
+          taskName = "";
+          tasks = getTaskStore();
+      }
+  }
 
-    function select(task) {
-        return function(event) {
-            event.preventDefault();
-            selectedTask = task;
-        }
-    };
+  function select(task) {
+      return function(event) {
+          event.preventDefault();
+          selectedTask = task;
+      }
+  };
   let selectedTask = null;
 </script>
 <div>
